@@ -41,6 +41,7 @@ module Libreconv
           end
         rescue Timeout::Error => e
           Process.kill 9, pid
+          %x( pkill soffice )
           raise 'Document took too long to process'
         end
       }
